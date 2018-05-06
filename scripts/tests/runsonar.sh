@@ -64,7 +64,7 @@ function CommonParams {
 }
 
 function gitFetch {
-  echo 'git fetch --unshallow'
+  echo 'git fetch --depth=10000 --unshallow'
   # Fetch all commit history so that SonarQube has exact blame information
   # for issue auto-assignment
   # This command can fail with "fatal: --unshallow on a complete repository does not make sense"
