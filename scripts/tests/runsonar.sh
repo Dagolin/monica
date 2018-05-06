@@ -70,7 +70,12 @@ function gitFetch {
   # This command can fail with "fatal: --unshallow on a complete repository does not make sense"
   # if there are not enough commits in the Git repository (even if Travis executed git clone --depth 50).
   # For this reason errors are ignored with "|| true"
-  git fetch
+  if [ -e \"$(git rev-parse --git-dir)/shallow\" ]
+    echo 'git fetch --unshallow'
+    git fetch --unshallow
+  fi
+
+  #git fetch
 }
 
 function getSonarlauncher {
