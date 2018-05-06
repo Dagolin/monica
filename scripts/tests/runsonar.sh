@@ -131,6 +131,8 @@ elif [ "$PR_NUMBER" != "false" ] && [ -n "${SONAR_TOKEN:-}" ]; then
   PULL_REQUEST_HEADBRANCH=${REPOS_VALUES[3]}
 
   if [ -z "${PULL_REQUEST_REPOSITORY:-}" ] || [ "$PULL_REQUEST_REPOSITORY" == "null" ]; then
+    echo $GITHUB_TOKEN
+    echo $REPO
     echo 'Error with github api call'
     exit 1
   elif [ "$PULL_REQUEST_REPOSITORY" == "$REPOSITORY_OWNER" ]; then
