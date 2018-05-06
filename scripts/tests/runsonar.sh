@@ -64,13 +64,13 @@ function CommonParams {
 }
 
 function gitFetch {
-  echo 'git fetch --unshallow'
+  echo 'git fetch --unshallow || true'
   # Fetch all commit history so that SonarQube has exact blame information
   # for issue auto-assignment
   # This command can fail with "fatal: --unshallow on a complete repository does not make sense"
   # if there are not enough commits in the Git repository (even if Travis executed git clone --depth 50).
   # For this reason errors are ignored with "|| true"
-  git fetch --unshallow
+  git fetch --unshallow || true
 }
 
 function getSonarlauncher {
