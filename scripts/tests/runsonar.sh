@@ -124,6 +124,7 @@ echo $REPO
     -Dsonar.analysis.repository=$REPO"
   echo $SONAR_PARAMS
   echo sonar-scanner $SONAR_PARAMS
+  echo $SONAR_TOKEN
   $SONAR_SCANNER_HOME/bin/sonar-scanner $SONAR_PARAMS -Dsonar.login=$SONAR_TOKEN
 
 elif [ "$PR_NUMBER" != "false" ] && [ -n "${SONAR_TOKEN:-}" ]; then
