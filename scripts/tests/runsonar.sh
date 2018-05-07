@@ -119,7 +119,7 @@ echo $(CommonParams)
 echo $SHA1
 echo $REPO
   SONAR_PARAMS="$(CommonParams) \
-    -Dsonar.projectVersion='Release branch' \
+    -Dsonar.projectVersion='Release' \
     -Dsonar.analysis.sha1=$SHA1 \
     -Dsonar.analysis.repository=$REPO"
   echo $SONAR_PARAMS
