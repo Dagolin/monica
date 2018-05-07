@@ -71,7 +71,6 @@ function gitFetch {
   # if there are not enough commits in the Git repository (even if Travis executed git clone --depth 50).
   # For this reason errors are ignored with "|| true"
   git fetch --unshallow || true
-  echo 'after fetch'
 }
 
 function getSonarlauncher {
@@ -98,6 +97,8 @@ if [ "$BRANCH" == "master" ] && [ "$PR_NUMBER" == "false" ] && [ -n "${SONAR_TOK
   installSonar
   gitFetch
 
+  echo 'beta'
+
   SONAR_PARAMS="$(CommonParams) \
     -Dsonar.projectVersion=master \
     -Dsonar.analysis.sha1=$SHA1 \
@@ -113,6 +114,7 @@ elif [ -n "${BRANCH:-}" ] && [ "$PR_NUMBER" == "false" ] && [ -n "${SONAR_TOKEN:
   installSonar
   gitFetch
 
+echo 'gamma'
   SONAR_PARAMS="$(CommonParams) \
     -Dsonar.projectVersion=$(php artisan monica:getversion) \
     -Dsonar.analysis.sha1=$SHA1 \
@@ -152,6 +154,7 @@ elif [ "$PR_NUMBER" != "false" ] && [ -n "${SONAR_TOKEN:-}" ]; then
   installSonar
   gitFetch
 
+echo 'alpha'
   SONAR_PARAMS="$(CommonParams) \
     -Dsonar.analysis.sha1=$SHA1 \
     -Dsonar.analysis.prNumber=$PR_NUMBER \
