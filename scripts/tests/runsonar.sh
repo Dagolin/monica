@@ -96,7 +96,7 @@ if [ "$BRANCH" == "master" ] && [ "$PR_NUMBER" == "false" ] && [ -n "${SONAR_TOK
   echo '===================='
   installSonar
   gitFetch
-  
+
   SONAR_PARAMS="$(CommonParams) \
     -Dsonar.projectVersion=master \
     -Dsonar.analysis.sha1=$SHA1 \
