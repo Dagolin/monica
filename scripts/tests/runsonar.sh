@@ -115,12 +115,11 @@ elif [ -n "${BRANCH:-}" ] && [ "$PR_NUMBER" == "false" ] && [ -n "${SONAR_TOKEN:
   gitFetch
 
 echo 'gamma'
-echo $(php artisan monica:getversion)
 echo $(CommonParams)
 echo $SHA1
 echo $REPO
   SONAR_PARAMS="$(CommonParams) \
-    -Dsonar.projectVersion=$(php artisan monica:getversion) \
+    -Dsonar.projectVersion='Release branch' \
     -Dsonar.analysis.sha1=$SHA1 \
     -Dsonar.analysis.repository=$REPO"
   echo $SONAR_PARAMS
