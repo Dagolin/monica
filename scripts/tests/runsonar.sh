@@ -71,6 +71,7 @@ function gitFetch {
   # if there are not enough commits in the Git repository (even if Travis executed git clone --depth 50).
   # For this reason errors are ignored with "|| true"
   git fetch --unshallow || true
+  echo 'after fetch'
 }
 
 function getSonarlauncher {
