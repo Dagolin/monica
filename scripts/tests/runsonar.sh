@@ -119,7 +119,7 @@ echo 'gamma'
     -Dsonar.projectVersion=$(php artisan monica:getversion) \
     -Dsonar.analysis.sha1=$SHA1 \
     -Dsonar.analysis.repository=$REPO"
-  
+  echo $SONAR_PARAMS
   echo sonar-scanner $SONAR_PARAMS
   $SONAR_SCANNER_HOME/bin/sonar-scanner $SONAR_PARAMS -Dsonar.login=$SONAR_TOKEN
 
